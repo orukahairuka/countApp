@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                FlipClockTextEffect(
+                    value:0,
+                    size: CGSize(width: 100, height: 150),
+                    fontSize: 70,
+                    cornerRadius: 10,
+                    foreground: .white,
+                    background: .red
+                )
+            }
+        }
     }
 }
 
