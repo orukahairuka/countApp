@@ -17,6 +17,7 @@ struct FlipClockTextEffect: View {
 
     @State private var nextValue: Int = 1
     @State private var currentValue: Int = 0
+    @State private var rotation: CGFloat = 0
     var body: some View {
         let halfHeight = size.height * 0.5
         ZStack {
@@ -29,25 +30,46 @@ struct FlipClockTextEffect: View {
                 }
                 .clipped()
                 .frame(maxHeight: .infinity, alignment: .top)
-                .zIndex(10)
+
 
             UnevenRoundedRectangle(topLeadingRadius: cornerRadius, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: cornerRadius)
                 .fill(background.gradient.shadow(.inner(radius: 1)))
                 .frame(height: halfHeight)
-                .overlay(alignment: .top) {
-                    TextView(currentValue)
-                        .frame(width: size.width, height: size.height)
-                }
+                .modifier(RotationModifire(
+                    rotation: rotation,
+                    currentValue: currentValue,
+                    nextValue: nextValue,
+                    fontSize: fontSize,
+                    foregroud: foreground,
+                    size: size
+                    )
+                )
                 .clipped()
                 .rotation3DEffect(
-                    .init(degrees: -165),
+                    .init(degrees: rotation),
                     axis: (x: 1.0, y: 0.0, z: 0.0),
                     anchor: .bottom,
                     perspective: 0.4
                 )
                 .frame(maxHeight: .infinity, alignment: .top)
+                .zIndex(10)
+
+            UnevenRoundedRectangle(topLeadingRadius: 0, bottomLeadingRadius: cornerRadius, bottomTrailingRadius: cornerRadius, topTrailingRadius: 0)
+                .fill(background.gradient.shadow(.inner(radius: 1)))
+                .frame(height: halfHeight)
+                .overlay(alignment: .bottom) {
+                    TextView(currentValue)
+                        .frame(width: size.width, height: size.height)
+                }
+                .clipped()
+                .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .frame(width: size.width, height: size.height)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 3)) {
+                rotation = -180
+            }
+        }
     }
 
     @ViewBuilder
@@ -64,6 +86,7 @@ fileprivate struct RotationModifire: ViewModifier, Animatable {
     var nextValue: Int
     var fontSize: CGFloat
     var foregroud: Color
+    var size: CGSize
     var animatableData: CGFloat {
         get { rotation }
         set { rotation = newValue }
@@ -72,11 +95,21 @@ fileprivate struct RotationModifire: ViewModifier, Animatable {
     func body(content: Content) -> some View {
         content
             .overlay(alignment: .top) {
-                if -rotation > 90 {
-
-                } else {
-                    
+                Group {
+                    if -rotation > 90 {
+                        Text("\(nextValue)")
+                            .font(.system(size: fontSize).bold())
+                            .foregroundStyle(foregroud)
+                            .scaleEffect(x: 1, y: -1)
+                            .transition(.identity)
+                    } else {
+                        Text("\(currentValue)")
+                            .font(.system(size: fontSize).bold())
+                            .foregroundStyle(foregroud)
+                            .transition(.identity)
+                    }
                 }
+                .frame(width: size.width, height: size.height)
             }
     }
 }
