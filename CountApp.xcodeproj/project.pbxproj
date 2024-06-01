@@ -12,6 +12,7 @@
 		3B2FC9F82C08AA2C001A12AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2FC9F72C08AA2C001A12AC /* Assets.xcassets */; };
 		3B2FC9FB2C08AA2C001A12AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2FC9FA2C08AA2C001A12AC /* Preview Assets.xcassets */; };
 		3B4963B42C08D74B00FCCC6A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4963B32C08D74B00FCCC6A /* ContentView.swift */; };
+		3BF6D6592C0B46A2009E105F /* TimerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6D6582C0B46A2009E105F /* TimerSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3B2FC9F72C08AA2C001A12AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B2FC9FA2C08AA2C001A12AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B4963B32C08D74B00FCCC6A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3BF6D6582C0B46A2009E105F /* TimerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				3B2FC9F32C08AA2B001A12AC /* CountAppApp.swift */,
 				3B2FC9F52C08AA2B001A12AC /* FlipClockTextEffect.swift */,
 				3B4963B32C08D74B00FCCC6A /* ContentView.swift */,
+				3BF6D6582C0B46A2009E105F /* TimerSet.swift */,
 				3B2FC9F72C08AA2C001A12AC /* Assets.xcassets */,
 				3B2FC9F92C08AA2C001A12AC /* Preview Content */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2FC9F62C08AA2B001A12AC /* FlipClockTextEffect.swift in Sources */,
+				3BF6D6592C0B46A2009E105F /* TimerSet.swift in Sources */,
 				3B2FC9F42C08AA2B001A12AC /* CountAppApp.swift in Sources */,
 				3B4963B42C08D74B00FCCC6A /* ContentView.swift in Sources */,
 			);
