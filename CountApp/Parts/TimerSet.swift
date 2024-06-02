@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimerSet: View {
-    @State private var selectionDate = Date()
+    @Binding var selectionDate: Date
     var body: some View {
         VStack {
             /// ラベル
@@ -26,6 +26,6 @@ struct TimerSet: View {
 }
 
 #Preview {
-    TimerSet()
+    TimerSet(selectionDate: .constant(Date()))
         .environment(\.locale, Locale(identifier: "ja_JP"))    // 追加
 }

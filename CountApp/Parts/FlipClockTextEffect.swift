@@ -137,6 +137,6 @@ fileprivate struct RotationModifire: ViewModifier, Animatable {
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
