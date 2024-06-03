@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct halfDetailView: View {
+struct HalfDetailView: View {
     @Binding var isShowSheet: Bool
     @State private var selectionDate = Date()
     var body: some View {
@@ -16,5 +16,5 @@ struct halfDetailView: View {
 }
 
 #Preview {
-    halfDetailView(isShowSheet: .constant(true))
+    HalfDetailView(isShowSheet: .constant(true))
 }

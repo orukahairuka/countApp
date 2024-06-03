@@ -18,14 +18,21 @@ struct TimerSet: View {
             }
             .font(.title)
             .bold()
+            .padding(.bottom, 40)
             /// DatePicker
             DatePicker("出国日時", selection: $selectionDate)
                 .labelsHidden()
+
         }
+        .padding(.bottom,230)
     }
 }
 
 #Preview {
     TimerSet(selectionDate: .constant(Date()))
         .environment(\.locale, Locale(identifier: "ja_JP"))    // 追加
+}
+
+#Preview ("ContentView"){
+    ContentView()
 }

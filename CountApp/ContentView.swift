@@ -34,6 +34,10 @@ struct ContentView: View {
                         .frame(width: 120, height: 100)
                         .background(.red)
                 }
+                .sheet(isPresented: $isShowSheet) {
+                    HalfDetailView(isShowSheet: $isShowSheet)
+                        .presentationDetents([.medium])
+                }
             }
             .padding()
 
